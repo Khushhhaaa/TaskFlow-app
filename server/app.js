@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,11 +14,12 @@ var labelsRouter = require('./routes/labels');
 var app = express();
 
 // MongoDB connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/todoapp';
+const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI, {
-  // ...other options
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
-  .then(() => console.log('MongoDB connected'))
+  .then(() => console.log('MongoDB connected!'))
   .catch(err => console.error('MongoDB connection error:', err));
 
 app.use(logger('dev'));

@@ -28,7 +28,7 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import { useTaskContext } from '../context/TaskContext';
 import { useProjectContext } from '../context/ProjectContext';
 import { useAuth } from '../context/AuthContext';
-import heroImg from '../assets/hero-dashboard.svg';
+import productivityImg from '../assets/undraw_productivity.png';
 import AddTaskModal from '../components/AddTaskModal';
 
 const AUTH_KEY = "authUser";
@@ -212,7 +212,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box sx={{ flex: 1, minWidth: 0, display: 'flex', justifyContent: 'center' }}>
-          <img src={heroImg} alt="Dashboard Hero" style={{ maxWidth: '340px', width: '100%', height: 'auto' }} />
+          <img src={productivityImg} alt="Productivity Illustration" style={{ maxWidth: '340px', width: '100%', height: 'auto' }} />
         </Box>
       </Paper>
       <Grid container spacing={3} mb={2}>

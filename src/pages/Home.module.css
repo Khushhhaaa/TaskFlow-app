@@ -1,0 +1,25 @@
+.homeContainer {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 2rem 1rem;
+  min-height: 350px;
+}
+
+.todoList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .homeContainer {
+    padding: 1rem 0.5rem;
+  }
+}
+
+[data-theme="dark"] .homeContainer {
+  background: #111;
+  color: #fff;
+} 

@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.taskGroup {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.groupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.groupHeader:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.groupTitle {
+  font-weight: 600 !important;
+  color: #2c3e50;
+}
+
+.taskList {
+  padding: 8px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 48px 0;
+  color: #95a5a6;
+  font-style: italic;
+} 

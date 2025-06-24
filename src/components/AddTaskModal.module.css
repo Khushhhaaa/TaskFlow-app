@@ -1,0 +1,46 @@
+.dialog {
+  backdrop-filter: blur(5px);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--transition), background var(--transition);
+}
+
+.dialog :global(.MuiDialog-paper) {
+  border-radius: 12px;
+}
+
+.title {
+  color: #2c3e50;
+  font-weight: 600 !important;
+  padding: 20px 24px !important;
+  border-bottom: 1px solid #eee;
+}
+
+.content {
+  padding: 24px !important;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.actions {
+  padding: 16px 24px !important;
+  border-top: 1px solid #eee;
+}
+
+.cancelButton {
+  color: #7f8c8d !important;
+}
+
+.submitButton {
+  background-color: #3498db !important;
+  text-transform: none !important;
+  padding: 6px 16px !important;
+}
+
+.submitButton:hover {
+  background-color: #2980b9 !important;
+}

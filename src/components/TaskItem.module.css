@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  background: #fff;
+  margin-bottom: 16px;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+.container:hover {
+  background: #f0f4ff;
+  box-shadow: 0 4px 24px 0 #b2a4ff;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.checkbox {
+  margin-right: 12px !important;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-weight: 500 !important;
+  margin-bottom: 4px !important;
+  color: #2c3e50;
+}
+
+.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
+  color: #95a5a6 !important;
+  transition: opacity var(--transition), text-decoration var(--transition);
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dueDate {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon {
+  color: #95a5a6;
+  opacity: 0.8;
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.container:hover .actions {
+  opacity: 1;
+}
+
+.actionButton {
+  color: #95a5a6 !important;
+  transition: color 0.2s !important;
+}
+
+.actionButton:hover {
+  color: #2c3e50 !important;
+}
+
+.deleteConfirm {
+  color: #e74c3c !important;
+}
+
+.deleteConfirm:hover {
+  color: #c0392b !important;
+}
+
+.projectDot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-left: 8px;
+  vertical-align: middle;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+} 

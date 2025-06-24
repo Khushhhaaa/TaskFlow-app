@@ -1,0 +1,41 @@
+.aboutContainer {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 2rem 1rem;
+  text-align: center;
+  animation: fadeIn 0.7s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+.featureList {
+  list-style: disc inside;
+  text-align: left;
+  margin: 1rem auto 0 auto;
+  max-width: 350px;
+  padding-left: 0;
+}
+
+.featureList li {
+  margin-bottom: 0.5rem;
+}
+
+.aboutContainer a {
+  color: #3182ce;
+  text-decoration: none;
+}
+.aboutContainer a:hover {
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .aboutContainer {
+  background: #111;
+  color: #fff;
+}
+[data-theme="dark"] .aboutContainer a {
+  color: #f6e05e;
+} 

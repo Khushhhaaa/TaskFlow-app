@@ -1,0 +1,11 @@
+.fab {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transition: transform 0.2s !important;
+}
+
+.fab:hover {
+  transform: scale(1.05);
+} 

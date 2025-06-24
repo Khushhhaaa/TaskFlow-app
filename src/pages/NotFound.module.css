@@ -1,0 +1,29 @@
+.notFoundContainer {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+.homeLink {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #3182ce;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid #3182ce;
+  transition: color 0.2s;
+}
+.homeLink:hover {
+  color: #2b6cb0;
+}
+
+[data-theme="dark"] .notFoundContainer {
+  background: #111;
+  color: #fff;
+}
+[data-theme="dark"] .homeLink {
+  color: #f6e05e;
+  border-bottom: 1px solid #f6e05e;
+} 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Typography, Paper, Divider, useTheme } from '@mui/material';
-import productivityImg from '../assets/undraw_productivity.png';
 
 const About = () => {
   const theme = useTheme();
@@ -19,9 +18,6 @@ const About = () => {
         alignItems: 'center',
         gap: 4,
       }}>
-        <Box sx={{ flex: 1, minWidth: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <img src={productivityImg} alt="About Productivity Illustration" style={{ maxWidth: '340px', width: '100%', height: 'auto' }} />
-        </Box>
         <Box sx={{ flex: 2, minWidth: 0 }}>
           <Typography variant="h3" fontWeight={700} gutterBottom>
             About Flow

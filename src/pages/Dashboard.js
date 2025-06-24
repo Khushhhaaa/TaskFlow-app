@@ -183,26 +183,27 @@ const Dashboard = () => {
         boxShadow: isDark ? '0 4px 24px 0 #0004' : '0 8px 32px 0 #e0e0e0',
         mb: 4,
         display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
+        flexDirection: 'column',
         alignItems: 'center',
-        gap: 4,
+        justifyContent: 'center',
+        gap: 0,
       }}>
-        <Box sx={{ flex: 1, minWidth: 0 }}>
+        <Box sx={{ width: '100%', textAlign: 'center' }}>
           <Typography variant="h3" fontWeight={800} mb={2}>
             Welcome{user?.name ? `, ${user.name}` : ''}!
           </Typography>
           <Typography variant="h6" mb={3} color={isDark ? '#e0e0e0' : '#5c6f7c'}>
             Stay organized and productive. Every small step counts!
           </Typography>
-          <Box display="flex" alignItems="center" gap={2} mb={1}>
+          <Box display="flex" alignItems="center" justifyContent="center" gap={2} mb={2}>
             <Typography variant="body2" color="textSecondary">Today's Progress</Typography>
             <LinearProgress variant="determinate" value={totalDueToday ? (completedDueToday / totalDueToday) * 100 : 0} sx={{ width: 120, height: 10, borderRadius: 5, background: '#eee' }} />
             <Typography variant="body2" color="success.main">{completedDueToday}/{totalDueToday}</Typography>
           </Box>
-          <Typography variant="body2" color="primary.main" fontStyle="italic" mb={2}>
+          <Typography variant="body2" color="primary.main" fontStyle="italic" mb={3}>
             "Every small step counts. Keep going!"
           </Typography>
-          <Box display="flex" gap={2} mt={2}>
+          <Box display="flex" gap={2} mt={1} justifyContent="center">
             <Button variant="contained" color="primary" onClick={() => setIsAddModalOpen(true)}>
               Add Task
             </Button>
@@ -210,9 +211,6 @@ const Dashboard = () => {
               Go to Today
             </Button>
           </Box>
-        </Box>
-        <Box sx={{ flex: 1, minWidth: 0, display: 'flex', justifyContent: 'center' }}>
-          <img src={productivityImg} alt="Productivity Illustration" style={{ maxWidth: '340px', width: '100%', height: 'auto' }} />
         </Box>
       </Paper>
       <Grid container spacing={3} mb={2}>

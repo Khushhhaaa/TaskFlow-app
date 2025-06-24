@@ -23,9 +23,9 @@ import {
 } from "@mui/material";
 import { Add, Edit, Delete, Event, Label, FilterList } from "@mui/icons-material";
 import { useAuth } from '../context/AuthContext';
-import { labelColor } from '../utils';
+import { labelColor, API_BASE_URL } from '../utils';
 
-const API = "/api/tasks";
+const API = `${API_BASE_URL}/api/tasks`;
 const palette = {
   primary: "#6C5CE7",
   bg: "#F7F8FA",

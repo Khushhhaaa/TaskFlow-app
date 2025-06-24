@@ -26,6 +26,7 @@ import {
 } from "@mui/material";
 import { Add, Edit, Delete, Event } from "@mui/icons-material";
 import { useAuth } from '../context/AuthContext';
+import { API_BASE_URL } from '../utils';
 
 const API = "/api/tasks";
 const palette = {
@@ -74,7 +75,7 @@ export default function Tasks() {
 
   const fetchTasks = async () => {
     setLoading(true);
-    const res = await fetch(API, {
+    const res = await fetch(`${API_BASE_URL}/api/tasks`, {
       headers: token ? { Authorization: `Bearer ${token}` } : {}
     });
     let data;
@@ -113,13 +114,13 @@ export default function Tasks() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isEdit) {
-      await fetch(`${API}/${form._id}`, {
+      await fetch(`${API_BASE_URL}/api/tasks/${form._id}`, {
         method: "PUT",
         headers: token ? { "Content-Type": "application/json", Authorization: `Bearer ${token}` } : { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
     } else {
-      await fetch(API, {
+      await fetch(`${API_BASE_URL}/api/tasks`, {
         method: "POST",
         headers: token ? { "Content-Type": "application/json", Authorization: `Bearer ${token}` } : { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -130,7 +131,7 @@ export default function Tasks() {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`${API}/${id}`, {
+    await fetch(`${API_BASE_URL}/api/tasks/${id}`, {
       method: "DELETE",
       headers: token ? { Authorization: `Bearer ${token}` } : {},
     });

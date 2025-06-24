@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import { useAuth } from './AuthContext';
+import { API_BASE_URL } from '../utils';
 
 const ProjectContext = createContext();
 
@@ -40,7 +41,7 @@ export function ProjectProvider({ children }) {
   // Fetch all projects on mount or when token changes
   useEffect(() => {
     if (!token) return;
-    fetch('/api/projects', {
+    fetch(`${API_BASE_URL}/api/projects`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.ok ? res.json() : [])
@@ -49,7 +50,7 @@ export function ProjectProvider({ children }) {
   }, [token]);
 
   const addProject = async (project) => {
-    const res = await fetch('/api/projects', {
+    const res = await fetch(`${API_BASE_URL}/api/projects`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify(project)
@@ -61,7 +62,7 @@ export function ProjectProvider({ children }) {
   };
 
   const updateProject = async (project) => {
-    const res = await fetch(`/api/projects/${project._id}`, {
+    const res = await fetch(`${API_BASE_URL}/api/projects/${project._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify(project)
@@ -73,7 +74,7 @@ export function ProjectProvider({ children }) {
   };
 
   const deleteProject = async (projectId) => {
-    const res = await fetch(`/api/projects/${projectId}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
+    const res = await fetch(`${API_BASE_URL}/api/projects/${projectId}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
     if (res.ok) {
       dispatch({ type: DELETE_PROJECT, payload: projectId });
     }

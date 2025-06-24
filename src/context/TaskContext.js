@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { useAuth } from './AuthContext';
+import { API_BASE_URL } from '../utils';
 
 // Task priority levels with corresponding colors
 export const PRIORITY = {
@@ -79,7 +80,7 @@ export function TaskProvider({ children }) {
   // Fetch tasks from backend on mount or when token changes
   useEffect(() => {
     if (!token) return;
-    fetch('/api/tasks', {
+    fetch(`${API_BASE_URL}/api/tasks`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.ok ? res.json() : [])
@@ -99,7 +100,7 @@ export function TaskProvider({ children }) {
       completed: false,
     };
     try {
-      const res = await fetch('/api/tasks', {
+      const res = await fetch(`${API_BASE_URL}/api/tasks`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify(payload)
@@ -119,7 +120,7 @@ export function TaskProvider({ children }) {
 
   // Update task via backend
   const updateTask = async (task) => {
-    const res = await fetch(`/api/tasks/${task._id}`, {
+    const res = await fetch(`${API_BASE_URL}/api/tasks/${task._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify(task)
@@ -132,7 +133,7 @@ export function TaskProvider({ children }) {
 
   // Delete task via backend
   const deleteTask = async (taskId) => {
-    const res = await fetch(`/api/tasks/${taskId}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
+    const res = await fetch(`${API_BASE_URL}/api/tasks/${taskId}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
     if (res.ok) {
       dispatch({ type: DELETE_TASK, payload: taskId });
     }
@@ -158,7 +159,7 @@ export function TaskProvider({ children }) {
       reminder: task.reminder,
       recurrence: task.recurrence,
     };
-    const res = await fetch(`/api/tasks/${taskId}`, {
+    const res = await fetch(`${API_BASE_URL}/api/tasks/${taskId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify(updatedTask)

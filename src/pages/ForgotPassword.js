@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography, TextField, Button, Alert } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../utils';
 
 const ForgotPassword = () => {
   const [step, setStep] = useState(1);
@@ -18,7 +19,7 @@ const ForgotPassword = () => {
     setLoading(true);
     setError('');
     setSuccess('');
-    const res = await fetch('/api/users/forgot', {
+    const res = await fetch(`${API_BASE_URL}/api/users/forgot`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
@@ -40,7 +41,7 @@ const ForgotPassword = () => {
     setLoading(true);
     setError('');
     setSuccess('');
-    const res = await fetch('/api/users/reset', {
+    const res = await fetch(`${API_BASE_URL}/api/users/reset`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, code, password })

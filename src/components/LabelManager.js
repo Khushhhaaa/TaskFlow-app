@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Typography, TextField, Button, IconButton, List, ListItem, ListItemText, ListItemSecondaryAction, Dialog, DialogTitle, DialogContent, DialogActions, InputAdornment } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import { API_BASE_URL } from '../utils';
 
 function randomColor() {
   const colors = ['#6C5CE7', '#00B894', '#00B0FF', '#FF7043', '#FFD600', '#FF5252', '#2ecc40', '#e67e22', '#8e44ad'];
@@ -20,7 +21,7 @@ const LabelManager = () => {
 
   const fetchLabels = async () => {
     setLoading(true);
-    const res = await fetch('/api/labels', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
+    const res = await fetch(`${API_BASE_URL}/api/labels`, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
     const data = await res.json();
     setLabels(data);
     setLoading(false);
@@ -30,7 +31,7 @@ const LabelManager = () => {
 
   const handleAdd = async () => {
     if (!name.trim()) return;
-    await fetch('/api/labels', {
+    await fetch(`${API_BASE_URL}/api/labels`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
       body: JSON.stringify({ name, color })
@@ -41,7 +42,7 @@ const LabelManager = () => {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`/api/labels/${id}`, {
+    await fetch(`${API_BASE_URL}/api/labels/${id}`, {
       method: 'DELETE',
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     });
@@ -56,7 +57,7 @@ const LabelManager = () => {
   };
 
   const handleEdit = async () => {
-    await fetch(`/api/labels/${editId}`, {
+    await fetch(`${API_BASE_URL}/api/labels/${editId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
       body: JSON.stringify({ name: editName, color: editColor })

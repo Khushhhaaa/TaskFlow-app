@@ -10,4 +10,6 @@ export function labelColor(label) {
   let hash = 0;
   for (let i = 0; i < label.length; i++) hash += label.charCodeAt(i);
   return colors[hash % colors.length];
-} 
+}
+
+export const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000'; 

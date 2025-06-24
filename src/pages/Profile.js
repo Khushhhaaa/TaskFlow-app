@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Box, Typography, TextField, Button, Alert, Avatar, IconButton } from '@mui/material';
 import { useAuth } from '../context/AuthContext';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import { API_BASE_URL } from '../utils';
 
 const AVATAR_KEY = 'userAvatar';
 
@@ -32,7 +33,7 @@ const Profile = () => {
     setLoading(true);
     setError('');
     setSuccess('');
-    const res = await fetch('/api/users/me', {
+    const res = await fetch(`${API_BASE_URL}/api/users/me`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

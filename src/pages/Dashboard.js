@@ -30,6 +30,7 @@ import { useProjectContext } from '../context/ProjectContext';
 import { useAuth } from '../context/AuthContext';
 import productivityImg from '../assets/undraw_productivity.png';
 import AddTaskModal from '../components/AddTaskModal';
+import { API_BASE_URL } from '../utils';
 
 const AUTH_KEY = "authUser";
 const STREAK_KEY = "taskStreak";
@@ -89,7 +90,7 @@ const Dashboard = () => {
   const isDark = (typeof window !== 'undefined' && document.body.dataset.theme === 'dark');
 
   useEffect(() => {
-    fetch(API, {
+    fetch(`${API_BASE_URL}/api/tasks`, {
       headers: token ? { Authorization: `Bearer ${token}` } : {}
     })
       .then(res => {

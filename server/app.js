@@ -16,6 +16,7 @@ var app = express();
 
 // MongoDB connection
 const MONGO_URI = process.env.MONGO_URI;
+console.log('Mongo URI from env:', process.env.MONGO_URI);
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
